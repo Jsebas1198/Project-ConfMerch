@@ -10,7 +10,7 @@ const Header = () => {
     </h1>
     <div className="Header-checkout">
       <Link to="/checkout">
-        checkout
+      <i class="fa-solid fa-cart-shopping"></i>
       </Link>
     </div>
   </div>
