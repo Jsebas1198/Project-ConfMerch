@@ -26,11 +26,11 @@ const Payment = () => {
     if(data.status === 'COMPLETED'){
         const newOrder ={
             buyer,
-            products: cart,
+            product: cart,
             payment:data
         }
 
-        addNewOrder(newOrder)
+        addNewOrder(newOrder);
         navigate('/checkout/success')
     }
   }
@@ -38,7 +38,7 @@ const Payment = () => {
     <div className="Payment">
       <div className="Payment-content">
           <h3>Resumen del pedido:</h3>
-          {cart.map(()=>(
+          {cart.map((item)=>(
               <div className="Payment-item" key={item.title}>
                   <div className="Payment-element">
                     <h4>{item.title}</h4>
@@ -50,11 +50,11 @@ const Payment = () => {
                 <PayPalButton 
                   paypalOptions={paypalOptions}
                   buttonStyles={buttonStyles}
-                 amount={handleSum(cart)}
+                   amount={handleSum(cart)}
                   onPaymentStart={() =>console.log("Start payment")}
-                  onPaymentSuccess={data => handlePaymentSuccess(data)}
-                  onPaymentError={error => console.log(error)}
-                  onPaymentCancel={data => console.log(data)}
+                  onSuccess={data => handlePaymentSuccess(data)}
+                  onError={error => console.log(error)}
+                  onCancel={data => console.log(data)}
 
                 />
             </div>
