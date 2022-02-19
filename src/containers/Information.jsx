@@ -1,15 +1,16 @@
 import React,{useRef,useContext} from 'react';
 import AppContext from '../context/AppContext';
-import {Link} from "react-router-dom";
+import {Link,useNavigate } from "react-router-dom";
 import "../styles/components/Information.css"
 
-const Information = () => {
+const Information = ({history}) => {
   const {state,addToBuyer}=useContext(AppContext);
   const form=useRef(null);
   const{cart}=state;
+  const navigate = useNavigate();
 
   const handleSubmit = ()=>{
-    const formData=new formData(form.current);
+    const formData = new FormData(form.current);
     const buyer={
       'name': formData.get('name'),
       'email': formData.get('email'),
@@ -24,6 +25,7 @@ const Information = () => {
     }
 
     addToBuyer(buyer);
+   navigate('/checkout/payment')
   }
 
   return (
