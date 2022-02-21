@@ -3,7 +3,7 @@ import AppContext from '../context/AppContext';
 import {Link,useNavigate } from "react-router-dom";
 import "../styles/components/Information.css"
 
-const Information = ({history}) => {
+const Information = () => {
   const {state,addToBuyer}=useContext(AppContext);
   const form=useRef(null);
   const{cart}=state;
