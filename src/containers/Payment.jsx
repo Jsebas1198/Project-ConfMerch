@@ -9,7 +9,7 @@ const Payment = () => {
   const {state,addNewOrder}=useContext(AppContext);
   const {cart,buyer}=state;
   const paypalOptions={
-    clientId:'AYSnDb1grK3_xsqAATWfo0SPraczgJetl1zdadfLLIGGMcGOKiOBsErIPsYm_rDa6N9E8md2lr3FfwFA',
+    clientId:process.env.CLIENT_ID,
     intent:'capture',
     currency:'USD'
   }
